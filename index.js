@@ -16,8 +16,14 @@ const stockList = [
 
 let stockPrices = {};
 
-function getRandomShares() {
-  return Math.random() < 0.5 ? 10 : -10;
+function getSharesPurchased(currentStockPrice) {
+  return currentStockPrice > 900
+    ? -10
+    : currentStockPrice < 10
+    ? 10
+    : Math.random() < 0.5
+    ? 10
+    : -10;
 }
 
 function getRandomPrice() {
@@ -93,9 +99,9 @@ async function startBotLoop() {
   const timer = setInterval(async () => {
     const randomStockIndex = Math.floor(Math.random() * stockList.length);
     const stock = stockList[randomStockIndex];
-    const shares = getRandomShares();
-    const action = shares > 0 ? "buy" : "sell";
     const price = stockPrices[stock] || getRandomPrice(); // Use the latest price if available
+    const shares = getSharesPurchased(price);
+    const action = shares > 0 ? "buy" : "sell";
     try {
       const response = await fetch(`http://${host}/stock-market/orders`, {
         method: "POST",
