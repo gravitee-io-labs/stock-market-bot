@@ -18,9 +18,9 @@ let stockPrices = {};
 
 function getSharesPurchased(currentStockPrice) {
   return currentStockPrice > 900
-    ? -100
-    : currentStockPrice < 50
-    ? 100
+    ? -10
+    : currentStockPrice < 10
+    ? 10
     : Math.random() < 0.5
     ? 10
     : -10;
