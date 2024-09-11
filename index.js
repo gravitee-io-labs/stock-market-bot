@@ -3,15 +3,15 @@ const authToken = process.env.AUTH_TOKEN;
 
 const interval = 5000;
 const stockList = [
-  "gravitee",
-  "kong",
-  "apigee",
-  "wso2",
-  "solo",
-  "tyk",
-  "apisix",
-  "aws",
-  "mulesoft",
+  "cagify",
+  "ghostrida",
+  "conairis",
+  "nationaltrex",
+  "wildathena",
+  "wickermania",
+  "gone60API",
+  "adaptAPI",
+  "faceoffix",
 ];
 
 let stockPrices = {};
