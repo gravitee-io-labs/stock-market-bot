@@ -56,7 +56,7 @@ async function createUser() {
 async function fetchStockPrices() {
   try {
     const response = await fetch(
-      `http://${host}/stock-market/current_stock_prices`,
+      `https://${host}/stock-market/current_stock_prices`,
       {
         method: "GET",
         headers: {
@@ -103,7 +103,7 @@ async function startBotLoop() {
     const shares = getSharesPurchased(price);
     const action = shares > 0 ? "buy" : "sell";
     try {
-      const response = await fetch(`http://${host}/stock-market/orders`, {
+      const response = await fetch(`https://${host}/stock-market/orders`, {
         method: "POST",
         headers: {
           "X-Gravitee-API-Key": authToken,
